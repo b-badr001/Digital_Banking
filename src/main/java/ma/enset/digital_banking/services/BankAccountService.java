@@ -1,5 +1,6 @@
 package ma.enset.digital_banking.services;
 
+import ma.enset.digital_banking.dtos.CustomerDTO;
 import ma.enset.digital_banking.entities.BankAccount;
 import ma.enset.digital_banking.entities.CurrentAccount;
 import ma.enset.digital_banking.entities.Customer;
@@ -14,7 +15,7 @@ public interface BankAccountService {
     public Customer saveCustomer(Customer customer);
     CurrentAccount saveCurrentBankAccount(double initialBalance, double overDraft, Long customerId) throws CustomerNotFoundException;
     SavingAccount saveSavingBankAccount(double initialBalance, double interestRate, Long customerId) throws CustomerNotFoundException;
-    List<Customer> listCustomer();
+    List<CustomerDTO> listCustomer();
     BankAccount getBankAccount(String accountId) throws BankAccountNotFoundException;
     void debit(String accountId,double amount,String description) throws BankAccountNotFoundException, BalanceNotSufficentException;
     void credit(String accountId,double amount,String description) throws BankAccountNotFoundException;
